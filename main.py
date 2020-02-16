@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
 import pynput
-import json
 import os
 class YGlobal(object):
     mouse_controller_ = pynput.mouse.Controller()
     key_map = {}
     count = 0
-    redraw = 5
+    redraw = 10
 
 def OnRelease(key):
     key = '{}'.format(key)
@@ -20,9 +19,9 @@ def OnRelease(key):
         res = sorted(YGlobal.key_map.items(),key = lambda x:x[1],reverse = True)
         os.system("cls")
         print('total: {} times.'.format(YGlobal.count))
-        for i in res:
+        for i in res[:25]:
             print('{percent:>5.2f}%{times:>6}times:\t\t{key}'.format(percent = i[1]*100/YGlobal.count, times = i[1], key = i[0]))
-            
 
 with pynput.keyboard.Listener(on_release = OnRelease) as listener:
     listener.join()
+
