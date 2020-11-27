@@ -16,7 +16,7 @@ def ReDraw():
     res = sorted(YGlobal.key_map.items(),key = lambda x:x[1],reverse = True)
     os.system("cls")
     print('total: {} times.'.format(YGlobal.count))
-    for i in res[:50]:
+    for i in res:
         print('{percent:>5.2f}%{times:>6}times:\t\t{key}'.format(percent = i[1]*100/YGlobal.count, times = i[1], key = i[0]))
     time.sleep(0.1)
     YGlobal.flag = True
