@@ -23,7 +23,7 @@ def ReDraw():
     YGlobal.flag = True
 
 def Send(key):
-    req = urllib.request.Request('http://{}:{}/get_key_statistics?i={}&v={}'.format(YGlobal.args.domain, YGlobal.args.port, "", key))
+    req = urllib.request.Request('http://{}:{}/get_key_statistics?i={}&v={}'.format(YGlobal.args.domain, YGlobal.args.port, time.time(), key))
     res = urllib.request.urlopen(req).read()
     #print(res.decode('utf-8'))
 
