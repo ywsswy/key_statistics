@@ -4,7 +4,6 @@ import pynput
 import os
 import threading
 import time
-import urllib.request
 
 class YGlobal(object):
     mouse_controller_ = pynput.mouse.Controller()
@@ -23,6 +22,7 @@ def ReDraw():
     YGlobal.flag = True
 
 def Send(key):
+    import urllib.request
     req = urllib.request.Request('http://{}:{}/get_key_statistics?i={}&v={}'.format(YGlobal.args.domain, YGlobal.args.port, time.time(), key))
     res = urllib.request.urlopen(req).read()
     #print(res.decode('utf-8'))
